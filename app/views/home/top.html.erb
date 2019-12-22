@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="col-xs-9">
+		<span>
+			<h1>welcome to <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookers</h1>
+		</span>
+
+		<p>
+			In <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Booker,<br>
+			you can share and exchange your opinions, inpressions, and emotions<br>
+			about various books!
+		</p>
+
+		<% if user_signed_in? %>
+			<%= link_to user_path(current_user.id) do %>
+				<button type="button" class="btn btn-primary">Log in</button>
+			<% end %>
+			<%= link_to user_path(current_user.id) do %>
+				<button type="button" class="btn btn-success">Sign up</button>
+			<% end %>
+
+		<% else %>
+			<%= link_to new_user_session_path do %>
+				<button type="button" class="btn btn-primary">Log in</button>
+			<% end %>
+			<%= link_to new_user_registration_path do %>
+				<button type="button" class="btn btn-success">Sign up</button>
+			<% end %>
+		<% end %>
+		
+	</div>
+
+	<%= render 'layouts/copy_right' %>
+</div>

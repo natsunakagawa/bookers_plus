@@ -1,0 +1,33 @@
+
+	<div class="row">
+		<div class="col-xs-9">
+			<span class="title editer-title">
+				<h1>Editing Book</h1>
+			</span>
+
+			<div class="form-body">
+				<%= form_for(@mybook) do |f| %>
+
+					<div class="block">
+						<%= f.label :Title %>
+						<%= f.text_field :title, autofocus: true, class:"form-control" %>
+					</div>
+					<div class="block">
+						<%= f.label :Opinion %>
+						<%= f.text_area :body, autofocus: true, class:"form-control" %>
+					</div>
+
+					<%= f.submit "Update Book", class:"btn btn-xs btn-block" %>
+				<% end %>
+
+				<div class="edit-box">
+					<p>
+						<%= link_to "Show", book_path(@mybook) %> | 
+						<%= link_to "Back", books_path %>
+					</p>
+				</div>
+			</div>
+
+		</div>
+		<%= render 'layouts/copy_right' %>
+	</div>

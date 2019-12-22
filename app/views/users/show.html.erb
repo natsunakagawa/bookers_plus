@@ -1,0 +1,42 @@
+
+	<div class="row">
+		<% if @user.errors.any? %>
+			<div class="col-xs-9">
+				<span class="title info-title">
+					<h1>User info</h1>
+				</span>
+
+				<div class="form-body">
+					<%= form_for(@user) do |f| %>
+
+						<%= render 'layouts/edit_error', model: f.object %>
+						
+						<div class="block">
+							<%= f.label :name %>
+							<%= f.text_field :name, autofocus: true, class:"form-control" %>
+						</div>
+						<div class="block">
+							<%= f.label :Image %>
+							<%= f.attachment_field :profile_image %>
+						</div>
+						<div class="block">
+							<%= f.label :introduction %>
+							<%= f.text_area :introduction %>
+						</div>
+
+						<%= f.submit "Update User", class:"btn btn-xs btn-block" %>
+					<% end %>	
+				</div>
+			</div>
+
+			<%= render 'layouts/copy_right' %>
+
+		<% else %>
+
+			<% render 'layouts/book_error', book: @book %>
+			
+			<%= render 'books/form', user: @user, book: @book %>
+
+			<%= render 'books/table', books: @books %>
+		<% end %>
+	</div>
